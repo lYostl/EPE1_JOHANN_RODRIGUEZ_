@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+</head>
+<body>
+    <h1>Formulario de Contacto</h1>
+    <form onsubmit="return false;">
+        <input type="text" id="nombre" placeholder="nombre">
+        <input type="email" id="email" placeholder="correo electrónico">
+        <input type="text" id="direccion" placeholder="dirección">
+        <select id="comuna">
+            <option value="">Selecciona su comuna</option>
+            <option value="providencia">providencia</option>
+            <option value="las Condes">las Condes</option>
+            <option value="la Florida">la Florida</option>
+            <option value="ñuñoa">ñuñoa</option>
+            <option value="maipú">maipú</option>
+            <option value="santiago">santiago</option>
+            <option value="la Reina">la Reina</option>
+            <option value="peñalolén">peñalolén</option>
+            <option value="puente Alto">puente Alto</option>
+            <option value="vitacura">vitacura</option>
+        </select>
+        <button onclick="enviar()">enviar</button>
+    </form>
+
+    <script>
+        function enviar() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var direccion = document.getElementById("direccion").value;
+            var comuna = document.getElementById("comuna").value;
+            var mensaje = `Nombre: ${nombre}correo Electrónico: ${email}dirección: ${direccion}comuna: ${comuna}`;
+            alert(mensaje);
+            console.log("estos son tus datos: " +mensaje);
+        }
+    </script>
+</body>
+</html>

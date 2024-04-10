@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filtro de producto</title>
+    <script>
+        var productos = [
+            { nombre: "granada", categoria: "fruta" },
+            { nombre: "pera", categoria: "fruta" },
+            { nombre: "pimenton", categoria: "verdura" },
+            { nombre: "pepino", categoria: "verdura" },
+            { nombre: "naranja", categoria: "fruta" },
+            { nombre: "cebolla", categoria: "verdura" },
+            { nombre: "plátano", categoria: "fruta" },
+            { nombre: "tomate", categoria: "verdura" },
+            { nombre: "uva", categoria: "fruta" },
+            { nombre: "espinaca", categoria: "verdura" }
+        ];
+
+        function filtrar() {
+            var filtro = document.getElementById("filtro").value;
+            var resultados = productos.filter(function(producto) {
+                return producto.nombre.toLowerCase().includes(filtro.toLowerCase()) || producto.categoria.toLowerCase().includes(filtro.toLowerCase());
+            });
+            mostrarResultados(resultados);
+        }
+
+        function mostrarResultados(resultados) {
+            var resultadoHTML = "";
+            resultados.forEach(function(producto) {
+                resultadoHTML += `<p>${producto.nombre} - ${producto.categoria}</p>`;
+            });
+            document.getElementById("resultados").innerHTML = resultadoHTML;
+        }
+    </script>
+</head>
+<body>
+    <h1>filtrar frutas o verduras</h1>
+    <input type="text" id="filtro" placeholder="buscar por nombre o categoría" oninput="filtrar()">
+    <div id="resultados"></div>
+</body>
+</html>
